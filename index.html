@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/AlpineJS-with-ViteJS/assets/favicon.17e50649.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+
+    <style>
+        .hidden {
+            display: none;
+        }
+        
+        .loveMe {
+            text-align: center;
+            background-color: aquamarine;
+            width: 300px;
+            height: 50%;
+            border: 1px solid blue;
+        }
+    </style>
+    <title>Vite App</title>
+  <script type="module" crossorigin src="/AlpineJS-with-ViteJS/assets/index.65bbaa59.js"></script>
+  <link rel="stylesheet" href="/AlpineJS-with-ViteJS/assets/index.ff38a1d0.css">
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <div x-data="enterOpen" class="enterOpen">
+
+        <!-- login -->
+        <div class="login">
+            <h2>Register</h2>
+            <strong>username:</strong> <input type="text" x-model="usenameReg" name="username" value="" class="username" placeholder="username"><strong>name:</strong> <input type="text" x-model="nameReg" name="name" value="" class="name" placeholder="name">
+            <button style="background-color: aquamarine;" @click="Register()">Register</button>
+            <span x-text="successErr" x-show="successErr != ''" x-transition style="background-color:rgb(95, 255, 47);font-size: 20px; color:white"></span>
+
+
+        </div>
+        <h2>Already have a account</h2>
+        <div class="account">
+            <strong>username:</strong> <input type="text" x-model="username" name="action" value="" class="username" placeholder="username">
+            <button @click="logIn()" style="background-color: aquamarine;">Login</button>
+            <span x-text="errorText" x-show="errorText != ''" x-transition style="font-size: 20px;"></span>
+
+        </div>
+        <!-- login -->
+        <hr>
+        <div :class="{ 'hidden': !enterOpen }">
+
+            <div x-data="loveCounter" class="loveMe">
+                <h1>Show some heart</h1>
+                <div x-text="hearts() ">
+                </div>
+                <div>
+                    <button @click="LoveCounter">Show 💟</button>
+                    <span x-text="LoveCounter"></span>
+                    <!-- <span x-model="LoveCounter"></span> -->
+                </div>
+            </div>
+            <!-- <div x-data="quoteApp ">
+        <div x-text="quote.quote "></div>
+    </div> -->
+            <!-- <hr> -->
+            <!-- <div x-data="quoteApp " class="quoteApp ">
+                <h1>Quote App</h1>
+                <button @click="getQuote() ">Next quote 📢</button>
+                <div class="quote ">
+                    <div x-text="quote.quote " class="content "></div>
+                    <div>
+                        <strong>by </strong><span x-text="quote.author "></span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
